@@ -19,4 +19,9 @@ function Almuerzo($scope) {
             "cost": 0,
         });
     }
+
+    $scope.menosComida = function (index) {
+        $scope.comidas.splice(index, 1);
+    }
+
 }
