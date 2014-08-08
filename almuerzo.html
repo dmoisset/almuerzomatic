@@ -39,13 +39,20 @@
           <th>A pagar</th><th>Pagado</th><th>Vuelto</th></tr>
         </thead>
         <tbody>
-          <tr><td><input value="elias"></td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td><td>50.25</td><td><input type="number" value ="100"></td><td>49.75</td></tr>
-          <tr><td><input value="julian"></td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td><td>50.25</td><td><input type="number" value ="50"></td><td>-0.25</td></tr>
-          <tr><td><input value="idacal"></td><td><input type="checkbox" checked></td><td><input type="checkbox"></td><td>37.75</td><td><input type="number" value ="0"></td><td>-37.75</td></tr>
-          <tr><td><strong>ppp</strong></td><td>37.75</td><td>12.5<td></td></tr>
+          <tr ng-repeat="comensal in comensales">
+            <td><input ng-model="comensal.name"></td>
+            <td ng-repeat="comida in comidas"><input type="checkbox" ng-model="comensal.comidas[comida.name]"></td>
+            <td>{{ aPagar($index) }}</td>
+            <td><input type="number" ng-model="comensal.paid"></td>
+            <td>{{ comensal.paid - aPagar($index)}}</td>
+            <td><button ng-click="menosComensales($index)" type="button" class="close" aria-hidden="true">&times;</button></td>
+          </tr>
+          <tr><td><strong>ppp</strong></td>
+            <td ng-repeat="comida in comidas">{{ precioPorPera($index) }}</td>
+          </tr>
         <tabody>
       <table>
-      <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> 1</button>
+      <button ng-click="masComensales()" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> 1</button>
 
     </div>
 
