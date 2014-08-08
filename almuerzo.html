@@ -21,9 +21,8 @@
           <tr><th>Item</th><th>Precio</th></tr>
         </thead>
         <tbody>
-          <tr><td><input value="Sandwich de Bondiola"></td><td><input type="number" value="113.25"></td></tr>
-          <tr><td><input value="Gaseosa"></td><td><input type="number" value="25"></td></tr>
-          <tr><td><strong>Total</strong></td><td>138.25</td></tr>
+          <tr ng-repeat="comida in comidas"><td><input ng-model="comida.name"></td><td><input type="number" ng-model="comida.cost"></td></tr>
+          <tr><td><strong>Total</strong></td><td>{{ costoTotal() }}</td></tr>
         <tabody>
       <table>
       <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> Más comida!</button>
