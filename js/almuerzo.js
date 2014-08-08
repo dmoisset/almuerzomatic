@@ -12,4 +12,11 @@ function Almuerzo($scope) {
         }
         return total;
     }
+
+    $scope.masComida = function () {
+        $scope.comidas.push({
+            "name": "Comida",
+            "cost": 0,
+        });
+    }
 }
